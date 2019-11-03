@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import Button from './utils/Button';
 import PropTypes from 'prop-types';
-import products from '../data/products';
 
 class ProductItem extends Component {
+    handleAddToCart (e) {
+        e.preventDefault();
+        console.log('added to cart');
+    }
+
     render() {
-console.log(this.props);
+        console.log(this.props);
 
         const { name, price, img } = this.props.product;
 
@@ -19,6 +24,7 @@ console.log(this.props);
                         <h3>{name}</h3>
                         <span>£{price}</span>
                     </a>
+                    <Button title={"Dodaj do koszyka"} onClick={this.handleAddToCart} />
                 </div>
             </li>
         )
@@ -26,8 +32,7 @@ console.log(this.props);
 }
 
 const productItemStyle = {
-    width: '25%',
-
+    width: '25%'
 }
 
 const imgStyle = {
@@ -35,6 +40,7 @@ const imgStyle = {
 }
 
 ProductItem.propTypes = {
+    product: PropTypes.object.isRequired
 }
 
 export default ProductItem;
