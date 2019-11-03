@@ -21,13 +21,8 @@ class ProductList extends Component {
                     <li><Button title={"Nazwa"} onClick={this.toggleFilters}/></li>
                     <li><Button title={"Cena"} onClick={this.toggleFilters}/></li>
                 </ul>
-<<<<<<< HEAD
                 <ul style={productListStyle}>
                     {this.state.products.map((product) => (
-=======
-                <ul>
-                    {this.props.products.map((product) => (
->>>>>>> feature/components
                         <ProductItem
                             key={product.id}
                             product={product}
