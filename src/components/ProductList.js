@@ -26,7 +26,7 @@ class ProductList extends Component {
                     <li><Button title={"Nazwa"} onClick={this.toggleFilters}/></li>
                     <li><Button title={"Cena"} onClick={this.toggleFilters}/></li>
                 </ul>
-                <ul>
+                <ul style={productListStyle}>
                     {this.state.products.map((product) => (
                         <ProductItem
                             key={product.id}
@@ -37,6 +37,11 @@ class ProductList extends Component {
             </div>
         )
     }
+}
+
+const productListStyle = {
+    display: 'flex',
+    flexWrap: 'wrap'
 }
 
 ProductList.propTypes = {

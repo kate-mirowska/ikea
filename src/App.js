@@ -4,11 +4,19 @@ import ProductPage from './components/pages/ProductPage';
 
 function App() {
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={appStyle}
+    >
       <Header />
       <ProductPage />
     </div>
   );
+}
+
+const appStyle = {
+  maxWidth: '1280px',
+  margin: '0 auto'
 }
 
 export default App;
