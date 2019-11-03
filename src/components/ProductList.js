@@ -22,7 +22,7 @@ class ProductList extends Component {
                     <li><Button title={"Cena"} onClick={this.toggleFilters}/></li>
                 </ul>
                 <ul style={productListStyle}>
-                    {this.state.products.map((product) => (
+                    {this.props.products.map((product) => (
                         <ProductItem
                             key={product.id}
                             product={product}
