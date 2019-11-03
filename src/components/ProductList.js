@@ -3,21 +3,16 @@ import Button from './utils/Button';
 import ProductItem from './ProductItem';
 import PropTypes from 'prop-types';
 
-import products from '../data/products';
-
-console.log(products);
 
 class ProductList extends Component {
-    state = {
-        products
-    }
-
     toggleFilters(e) {
         e.preventDefault();
         console.log('show filters')
     }
 
     render() {
+
+        console.log(this.props)
         return (
             <div className="product-list--wrapper">
                 <h2>Lista produktów</h2>
@@ -26,8 +21,13 @@ class ProductList extends Component {
                     <li><Button title={"Nazwa"} onClick={this.toggleFilters}/></li>
                     <li><Button title={"Cena"} onClick={this.toggleFilters}/></li>
                 </ul>
+<<<<<<< HEAD
                 <ul style={productListStyle}>
                     {this.state.products.map((product) => (
+=======
+                <ul>
+                    {this.props.products.map((product) => (
+>>>>>>> feature/components
                         <ProductItem
                             key={product.id}
                             product={product}

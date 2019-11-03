@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/layout/Header';
 import ProductPage from './components/pages/ProductPage';
 
+<<<<<<< HEAD
 function App() {
   return (
     <div
@@ -12,6 +13,18 @@ function App() {
       <ProductPage />
     </div>
   );
+=======
+
+class App extends Component {
+  render () {
+    return (
+      <div className="App">
+        <Header />
+        <ProductPage />
+      </div>
+    );
+  }
+>>>>>>> feature/components
 }
 
 const appStyle = {

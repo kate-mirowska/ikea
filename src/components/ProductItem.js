@@ -4,8 +4,6 @@ import products from '../data/products';
 
 class ProductItem extends Component {
     render() {
-console.log(this.props);
-
         const { name, price, img } = this.props.product;
 
         return (
