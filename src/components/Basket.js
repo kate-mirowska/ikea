@@ -5,12 +5,17 @@ import PropTypes from 'prop-types';
 
 class Basket extends Component {
     state = {
-
+        isBasketContentVisible: false
     }
+
+    constructor(props) {
+        super(props);
+        this.toggleBasket = this.toggleBasket.bind(this);
+      } 
 
     toggleBasket(e) {
         e.preventDefault();
-        console.log('clicked');
+        this.setState({ isBasketContentVisible: !this.state.isBasketContentVisible })
     }
 
     render() {
@@ -18,7 +23,7 @@ class Basket extends Component {
             <div className="basket-wrapper">
                 <div>Koszyk</div>
                 <Button title={"Rozwiń koszyk"} onClick={this.toggleBasket}/>
-                <BasketContent />
+                <BasketContent isvisible={this.state.isBasketContentVisible}/>
             </div>
         )
     }

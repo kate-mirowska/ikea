@@ -7,9 +7,19 @@ class BasketContent extends Component {
 
     }
 
+    getStyle = () => {
+        return {
+            display: this.props.isvisible ? 'block' : 'none',
+        }
+    }
+
     render() {
         return (
-            <div className="basket-content">
+            <div 
+                className="basket-content" 
+                isvisible={this.props.isBasketContentVisible} 
+                style={this.getStyle()}
+            >
                 <div>Zawartosc koszyka</div>
                 <ul>
                     <li>Koszyk jest pusty</li>
@@ -18,6 +28,7 @@ class BasketContent extends Component {
         )
     }
 }
+
 
 BasketContent.propTypes = {
 
