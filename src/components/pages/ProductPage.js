@@ -6,16 +6,18 @@ import products from '../../data/products';
 import PropTypes from 'prop-types';
 
 class ProductPage extends Component {
-    state = {
-        products: products
-    }
-    
+
     render() {
         return (
             <div className="container product-page">
                 <div>Nasze produkty</div>
-                <Basket />
-                <ProductList products={this.state.products} />
+
+                <ProductList 
+                    products={this.props.products}
+                    addToCart={this.props.addToCart}
+                    sortByName={this.props.sortByName}
+                    sortByPrice={this.props.sortByPrice}
+                />
             </div>
         )
     }

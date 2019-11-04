@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from './utils/Button';
+
 import PropTypes from 'prop-types';
 import products from '../data/products';
 
@@ -17,6 +19,7 @@ class ProductItem extends Component {
                         <h3>{name}</h3>
                         <span>£{price}</span>
                     </a>
+                    <Button title={"Dodaj do koszyka"} onClick={(e) => this.props.addToCart(e, this.props.product)}/>
                 </div>
             </li>
         )

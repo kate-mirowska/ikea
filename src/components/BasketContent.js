@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import Button from './utils/Button';
 import PropTypes from 'prop-types';
 
 class BasketContent extends Component {
-    state = {
-
-    }
-
     getStyle = () => {
         return {
             display: this.props.isvisible ? 'block' : 'none',
+        }
+    }
+
+    updateCart() {
+        if (this.props.updateCart()) {
+
         }
     }
 
@@ -17,16 +18,36 @@ class BasketContent extends Component {
         return (
             <div 
                 className="basket-content" 
-                isvisible={this.props.isBasketContentVisible} 
+                isvisible={this.props.isBasketOpen} 
                 style={this.getStyle()}
             >
-                <div>Zawartosc koszyka</div>
                 <ul>
-                    <li>Koszyk jest pusty</li>
+                    {
+                        this.props.productsCount < 1 ?
+                        <li>Koszyk jest pusty</li> :
+                        this.props.productsInBasket.map((product) => (
+                            <li key={product.id}>
+                                <div style={productItemStyle}>                                    
+                                    <img src={product.img} alt={product.name} style={imgStyle}/>
+                                    <span>{product.name}</span>
+                                    <span>£{product.price}</span>
+                                </div>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
         )
     }
+}
+
+const productItemStyle = {
+    width: '25%',
+
+}
+
+const imgStyle = {
+    width: '100%'
 }
 
 
