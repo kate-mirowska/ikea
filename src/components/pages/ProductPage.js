@@ -10,8 +10,6 @@ class ProductPage extends Component {
     render() {
         return (
             <div className="container product-page">
-                <div>Nasze produkty</div>
-
                 <ProductList 
                     products={this.props.products}
                     addToCart={this.props.addToCart}

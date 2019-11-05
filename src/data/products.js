@@ -3,7 +3,7 @@ const uuidv4 = require('uuid/v4')
 const products = [
     {
         id: uuidv4(),
-        name: 'Malm',
+        name: 'MALM',
         price: '315',
         img: 'https://www.ikea.com/PIAimages/0749129_PE745498_S5.JPG?f=m'
     },
@@ -15,7 +15,7 @@ const products = [
     },
     {
         id: uuidv4(),
-        name: 'BALESTRAND',
+        name: 'BALESTRAND 2',
         price: '279',
         img: 'https://www.ikea.com/PIAimages/0592975_PE674842_S5.JPG?f=m'
     },

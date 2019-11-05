@@ -26,30 +26,21 @@ class BasketContent extends Component {
                         this.props.productsCount < 1 ?
                         <li>Koszyk jest pusty</li> :
                         this.props.productsInBasket.map((product) => (
-                            <li key={product.id}>
-                                <div style={productItemStyle}>                                    
-                                    <img src={product.img} alt={product.name} style={imgStyle}/>
-                                    <span>{product.name}</span>
-                                    <span>£{product.price}</span>
+                            <li key={product.id} className="basket-item">
+                                <div className="basket-item-img">                                    
+                                    <img src={product.img} alt={product.name}/>
                                 </div>
+                                <span className="product-name">{product.name}</span>
+                                <span className="product-price">£{product.price}</span>
                             </li>
                         ))
                     }
                 </ul>
+                <div>Ilość produktów w koszyku: {this.props.productsCount}</div>
             </div>
         )
     }
 }
-
-const productItemStyle = {
-    width: '25%',
-
-}
-
-const imgStyle = {
-    width: '100%'
-}
-
 
 BasketContent.propTypes = {
 

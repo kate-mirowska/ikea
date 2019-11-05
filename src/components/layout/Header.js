@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import Basket from '../Basket';
 
 class Header extends Component {
     render() {
         return (
-            <div>
-                <header style={headerStyle}>
+            <div className="header-wrapper">
+                <header className="header">
                     <h1>Ikea</h1>
-                    {/* <Link to="/" style={linkStyle}>Home</Link> */}
-                    {' | '}
-                    {/* <Link to="/about" style={linkStyle}>About</Link> */}
+                    <img src="https://www.ikea.com/gb/en/static/ikea-logo.f88b07ceb5a8c356b7a0fdcc9a563d63.svg" alt="Ikea logo"/>
                 </header>
                 <Basket 
                         isBasketOpen={this.props.isBasketOpen} 
@@ -22,18 +19,6 @@ class Header extends Component {
             </div>
         )
     }
-}
-
-const headerStyle = {
-    background: '#333',
-    color: '#fff',
-    textAlign: 'center',
-    padding: '10px'
-}
-
-const linkStyle = {
-    color: '#fff',
-    textDecoration: 'none'
 }
 
 export default Header;

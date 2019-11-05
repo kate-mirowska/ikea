@@ -7,8 +7,7 @@ class Basket extends Component {
     render() {
 
         return (
-            <div className="basket-wrapper">
-                <div>Koszyk</div>
+            <div className={"basket-wrapper " + (this.props.isBasketOpen ? "open" : "close")}>
                 <Button 
                     title={this.props.isBasketOpen ? "Zamknij koszyk" : "Rozwiń koszyk"} 
                     onClick={this.props.toggleBasket}
