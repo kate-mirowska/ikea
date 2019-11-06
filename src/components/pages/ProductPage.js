@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Basket from '../Basket';
 import ProductList from '../ProductList';
 
-import products from '../../data/products';
 import PropTypes from 'prop-types';
 
 class ProductPage extends Component {
@@ -22,7 +20,10 @@ class ProductPage extends Component {
 }
 
 ProductPage.propTypes = {
-
+    products: PropTypes.array.isRequired,
+    addToCart: PropTypes.func.isRequired,
+    sortByName: PropTypes.func.isRequired,
+    sortByPrice: PropTypes.func.isRequired
 }
 
 export default ProductPage;

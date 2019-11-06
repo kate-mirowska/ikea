@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import BasketContent from './BasketContent';
 import Button from './utils/Button';
+
 import PropTypes from 'prop-types';
 
 class Basket extends Component {
     render() {
-
         return (
             <div className={"basket-wrapper " + (this.props.isBasketOpen ? "open" : "close")}>
                 <Button 
@@ -14,9 +14,9 @@ class Basket extends Component {
                 />
                 <BasketContent
                     isvisible={this.props.isBasketOpen}
-                    updateCart={this.props.updateCart}
-                    productsCount={this.props.productsCount}
                     productsInBasket={this.props.productsInBasket}
+                    productsCount={this.props.productsCount}
+                    removeFromCart={this.props.removeFromCart}
                 />
             </div>
         )
@@ -24,7 +24,11 @@ class Basket extends Component {
 }
 
 Basket.propTypes = {
-
+    isBasketOpen: PropTypes.bool.isRequired,
+    toggleBasket: PropTypes.func.isRequired,
+    productsInBasket: PropTypes.array.isRequired,
+    productsCount: PropTypes.number.isRequired,
+    removeFromCart: PropTypes.func.isRequired    
 }
 
 export default Basket;

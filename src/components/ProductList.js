@@ -3,7 +3,6 @@ import Button from './utils/Button';
 import ProductItem from './ProductItem';
 import PropTypes from 'prop-types';
 
-
 class ProductList extends Component {
     state = {
         filtersVisible: false,
@@ -54,7 +53,10 @@ class ProductList extends Component {
 }
 
 ProductList.propTypes = {
-
+    products: PropTypes.array.isRequired,
+    addToCart: PropTypes.func.isRequired,
+    sortByName: PropTypes.func.isRequired,
+    sortByPrice: PropTypes.func.isRequired
 }
 
 export default ProductList;

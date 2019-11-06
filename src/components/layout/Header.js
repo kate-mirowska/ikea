@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Basket from '../Basket';
+import PropTypes from 'prop-types';
 
 class Header extends Component {
     render() {
@@ -12,13 +13,21 @@ class Header extends Component {
                 <Basket 
                         isBasketOpen={this.props.isBasketOpen} 
                         toggleBasket={this.props.toggleBasket}
-                        updateCart={this.props.updateCart}
-                        productsCount={this.props.productsCount}
                         productsInBasket={this.props.productsInBasket}
+                        productsCount={this.props.productsCount}
+                        removeFromCart={this.props.removeFromCart}
                 />
             </div>
         )
     }
+}
+
+Header.propTypes = {
+    isBasketOpen: PropTypes.bool.isRequired,
+    toggleBasket: PropTypes.func.isRequired,
+    productsInBasket: PropTypes.array.isRequired,
+    productsCount: PropTypes.number.isRequired,
+    removeFromCart: PropTypes.func.isRequired    
 }
 
 export default Header;

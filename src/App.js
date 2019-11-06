@@ -8,9 +8,8 @@ class App extends Component {
     state = {
         products: products,
         isBasketOpen: false,
-        productsCount: 0,
-        addedProduct: {},
-        productsInBasket: []
+        productsInBasket: [],
+        productsCount: 0
     }
 
     constructor(props) {
@@ -18,6 +17,7 @@ class App extends Component {
         this.toggleBasket = this.toggleBasket.bind(this);
         this.sortByName = this.sortByName.bind(this);
         this.sortByPrice = this.sortByPrice.bind(this);
+        this.removeFromCart = this.removeFromCart.bind(this);
     }
 
     toggleBasket(e) {
@@ -27,16 +27,23 @@ class App extends Component {
 
     addToCart = (e, product) => {
         e.preventDefault();
+
+        if (this.state.productsInBasket.includes(product)) {
+            product.quantity++;
+            this.setState({ productsCount: this.state.productsCount +1 })
+        }
+
         this.setState({ 
             isBasketOpen: true, 
-            addedProduct: product, 
             productsCount: this.state.productsCount + 1,
-            productsInBasket: this.state.productsInBasket.concat(product) 
+            productsInBasket: this.state.productsInBasket.includes(product)? this.state.productsInBasket : this.state.productsInBasket.concat(product) 
         })
     }
 
-    updateCart = () => {
-        return this.state.addedProduct
+    removeFromCart (id) {
+        let products = this.state.productsInBasket.filter(product =>  product.id !== id )
+        this.setState({ productsInBasket: products, productsCount: products.length })
+        return products;
     }
 
     sortByName() {
@@ -50,27 +57,24 @@ class App extends Component {
     }
 
     sortByPrice() {
-      const sorted = products.sort(function(a, b){
-        if(a.price < b.price) { return -1; }
-        if(a.price > b.price) { return 1; }
-        return 0;
-    })
+        const sorted = products.sort(function(a, b){
+          if(a.price < b.price) { return -1; }
+          if(a.price > b.price) { return 1; }
+          return 0;
+      })
 
-    this.setState({ products: sorted })
+      this.setState({ products: sorted })
     }
 
     render() {
       return (
-        <div
-          className="App"
-          style={appStyle}
-        >
+        <div className="App">
           <Header
               isBasketOpen={this.state.isBasketOpen} 
               toggleBasket={this.toggleBasket}
-              updateCart={this.updateCart}
-              productsCount={this.state.productsCount}
               productsInBasket={this.state.productsInBasket}
+              productsCount={this.state.productsCount}
+              removeFromCart={this.removeFromCart}
           />
           <ProductPage
               products={this.state.products}
@@ -81,11 +85,6 @@ class App extends Component {
         </div>
       );
     }
-}
-
-const appStyle = {
-  maxWidth: '1280px',
-  margin: '0 auto'
 }
 
 export default App;
