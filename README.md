@@ -1,3 +1,8 @@
+This is an example product page of Ikea shop created in React.
+App was created using create-react-app and was deployed to HerokuApp.
+
+**********************************************
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
